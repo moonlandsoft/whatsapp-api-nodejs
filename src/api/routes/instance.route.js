@@ -2,7 +2,9 @@ const express = require('express')
 const controller = require('../controllers/instance.controller')
 const keyVerify = require('../middlewares/keyCheck')
 const loginVerify = require('../middlewares/loginCheck')
+const tokenVerify = require('../middlewares/tokenCheck')
 
+express.use(tokenVerify);
 const router = express.Router()
 router.route('/init').get(controller.init)
 router.route('/qr').get(keyVerify, controller.qr)
