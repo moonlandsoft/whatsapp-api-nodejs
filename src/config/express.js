@@ -15,9 +15,6 @@ app.set('views', path.join(__dirname, '../api/views'))
 global.WhatsAppInstances = {}
 
 const routes = require('../api/routes/')
-if (protectRoutes) {
-    app.use(tokenCheck)
-}
 app.use('/', routes)
 app.use(error.handler)
 
